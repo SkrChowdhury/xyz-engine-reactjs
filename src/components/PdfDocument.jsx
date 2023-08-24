@@ -1,12 +1,65 @@
-import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
+import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 
-import React from 'react';
+import React from "react";
 
-const PdfDocument = ({ max_X,min_X,max_Y,min_Y,max_Z,min_Z, minMaxValues }) => (
+const PdfDocument = ({
+  max_X,
+  min_X,
+  max_Y,
+  min_Y,
+  max_Z,
+  min_Z,
+  minMaxValues,
+  projectName,
+  projectDescription,
+  client,
+  contractor,
+}) => (
   <Document>
     <Page size="A4" style={styles.page}>
-    <View style={styles.container}>
-
+      <View style={styles.container}>
+        <View>
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "semibold",
+              textAlign: "center",
+              marginVertical: 4,
+            }}
+          >
+            Project Name: {projectName}
+          </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "semibold",
+              textAlign: "center",
+              marginVertical: 4,
+            }}
+          >
+            Project Description: {projectDescription}
+          </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "semibold",
+              textAlign: "center",
+              marginVertical: 4,
+            }}
+          >
+            Project Client: {client}
+          </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "semibold",
+              textAlign: "center",
+              marginVertical: 4,
+            }}
+          >
+            Project Contractor: {contractor}
+          </Text>
+        </View>
         <View style={styles.tableContainer}>
           <View style={styles.tableHeader}>
             <Text style={styles.headerText}>Name</Text>
@@ -43,14 +96,14 @@ const PdfDocument = ({ max_X,min_X,max_Y,min_Y,max_Z,min_Z, minMaxValues }) => (
             </View>
           </View>
         </View>
-    </View>
+      </View>
     </Page>
   </Document>
 );
 
 const styles = StyleSheet.create({
   page: {
-    flexDirection: 'column',
+    flexDirection: "column",
     padding: 20,
   },
   text: {
@@ -64,7 +117,7 @@ const styles = StyleSheet.create({
   },
   tableContainer: {
     margin: 10,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -73,37 +126,37 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     borderRadius: 8,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   tableHeader: {
-    flexDirection: 'row',
-    backgroundColor: '#3182CE',
+    flexDirection: "row",
+    backgroundColor: "#3182CE",
     borderBottomWidth: 1,
-    borderColor: '#4A90E2',
+    borderColor: "#4A90E2",
     paddingVertical: 10,
     paddingHorizontal: 6,
   },
   headerText: {
     flex: 1,
-    color: 'white',
-    fontWeight: 'bold',
+    color: "white",
+    fontWeight: "bold",
     fontSize: 12,
-    textAlign: 'center',
+    textAlign: "center",
   },
   tableBody: {},
   row: {
-    flexDirection: 'row',
+    flexDirection: "row",
     borderBottomWidth: 1,
-    borderColor: '#4A90E2',
+    borderColor: "#4A90E2",
     paddingVertical: 12,
     paddingHorizontal: 6,
-    backgroundColor: '#3182CE',
+    backgroundColor: "#3182CE",
   },
   rowText: {
     flex: 1,
-    color: 'white',
+    color: "white",
     fontSize: 12,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
 
