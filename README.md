@@ -8,6 +8,6 @@ or
 
 ``yarn dev``
 
-don't forget to install packages with npm i or yarn command. 
+don't forget to install packages with ``npm i`` or ``yarn`` command. 
 
 ## Thank You
