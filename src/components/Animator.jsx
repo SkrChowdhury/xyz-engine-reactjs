@@ -1,4 +1,4 @@
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 
 /**
  * @description - ⚙️ Animator Component
@@ -6,14 +6,16 @@ import {motion} from "framer-motion"
  * @returns {JSX.Element}
  * @constructor
  */
-const Animator = ({children, ...props}) => <motion.div
+const Animator = ({ children, ...props }) => (
+  <motion.div
     {...props}
-    style={{position: "absolute"}}
-    initial={{x: 200, scale: 0.8, opacity: 0}}
-    animate={{x: 0, scale: 1, opacity: 1}}
-    exit={{x: -200, scale: 0.8, opacity: 0}}
->
+    style={{ position: "absolute" }}
+    initial={{ x: 200, scale: 0.8, opacity: 0 }}
+    animate={{ x: 0, scale: 1, opacity: 1 }}
+    exit={{ x: -200, scale: 0.8, opacity: 0 }}
+  >
     {children}
-</motion.div>
+  </motion.div>
+);
 
-export default Animator
+export default Animator;
