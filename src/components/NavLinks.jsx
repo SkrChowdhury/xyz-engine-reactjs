@@ -7,22 +7,21 @@ import { GlobalContext } from "../context/GlobalContext";
  * @description - ⚙️ NavLinks Component
  * @returns {JSX.Element}
  * @constructor
- */ 
+ */
 const NavLinks = () => {
-  const { projectName,
-    projectDescription,
-    client,contractor, csvData } = useContext(GlobalContext);
+  const { projectName, projectDescription, client, contractor, csvData } =
+    useContext(GlobalContext);
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  
-  console.log("🚀 ~ file: NavLinks.jsx:19 ~ NavLinks ~ csvData:", csvData)
-
-  // This is a ternary operator that checks if the name and email fields are filled out.
-  const isProjectDone = projectName?.length !== 0 && projectDescription?.length !== 0 && client?.length !== 0 && contractor?.length !== 0;
-  // This is a ternary operator that checks if the twitter and facebook fields are filled out.
-  // const isCSVDataDone = twitter.length !== 0 && facebook.length !== 0;
-  const isCSVDataDone = csvData !== [] ;
+  // This is a ternary operator that checks if all fields are filled out.
+  const isProjectDone =
+    projectName?.length !== 0 &&
+    projectDescription?.length !== 0 &&
+    client?.length !== 0 &&
+    contractor?.length !== 0;
+  // This is a ternary operator that checks if there are values for csvData
+  const isCSVDataDone = csvData !== [];
 
   useEffect(() => {
     if (!isProjectDone && !isCSVDataDone) navigate("/");
@@ -31,17 +30,19 @@ const NavLinks = () => {
   return (
     <div className="pt-5 border-b-2 border-b-slate-300 flex gap-[20px] items-center justify-center">
       <Link
-        className={`pb-3 border-b-2 ${
-          pathname === "/" && "border-b-slate-800 font-semibold"
+        className={`p-3  ${
+          pathname === "/" &&
+          "bg-rose-700 bg-opacity-70 rounded-xl border-4 shadow-sm text-white font-semibold "
         }`}
         to="/"
       >
-        ProjectsInfo
+        Project Info
       </Link>
       {isProjectDone ? (
         <Link
-          className={`pb-3 border-b-2 ${
-            pathname === "/csv" && "border-b-slate-800  font-semibold"
+          className={`p-3 ${
+            pathname === "/csv" &&
+            "bg-rose-700 bg-opacity-70 rounded-xl border-4 shadow-sm text-white font-semibold "
           }`}
           to="/csv"
         >
@@ -52,8 +53,9 @@ const NavLinks = () => {
       )}
       {isProjectDone && isCSVDataDone ? (
         <Link
-          className={`pb-3 border-b-2 ${
-            pathname === "/result" && "border-b-slate-800 font-semibold"
+          className={`p-3  ${
+            pathname === "/result" &&
+            "bg-rose-700 bg-opacity-70 rounded-xl border-4 shadow-sm text-white font-semibold "
           }`}
           to="/result"
         >
